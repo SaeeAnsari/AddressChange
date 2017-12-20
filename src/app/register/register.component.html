@@ -1,13 +1,17 @@
-
-
 <div class="regiterMainContainer">
+    
+
+  <app-register-searchable-payee-list UserID="{{userID}}" ></app-register-searchable-payee-list>
   
-  <div class="registerForm">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-      <span class="input-group-addon" id="basic-addon2">@example.com</span>
-    </div>
-    <br>
-  </div>
+    
+  
+   <!--
+
+    <app-register-user (UserCreatedEvent)="userCreated($event)"></app-register-user>
+    <app-register-address UserID="{{userID}}" (UserAddressSaved)= "userAddresSaved($event)"></app-register-address>
+  
+   
+    
+  -->
   
 </div>

@@ -1,0 +1,86 @@
+<div class="registerForm">
+  <div class="payee-container">
+
+
+    <div class="Message">
+      <div class="address-heading">
+        <i class="fa fa-building-o" aria-hidden="true"></i>
+        <h5>Step 3: Payee/ Companies Setup</h5>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-10">
+        <label for="">Please search or select all companies that are currently sening you mail you need moved</label>
+        <div class="well">
+          <p>
+            <b>
+              <label for="">Easy: Open your Online Banking and simply add all your bills and account numbers from the bank site to here.
+                This will allow us to notify the Vendors to change your address.</label>
+            </b>
+          </p>
+          <p>
+            <label for="">DO NOT ADD any credit card company Account #'s as that is commonly also the credit card number, simply just check
+              is credit card checkbox</label>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="payee-search">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="input-group add-on">
+            <input class="form-control" [(ngModel)]="searchVal" [formControl]="searchInput" placeholder="Search" name="srch-term" id="srch-term"
+              type="text">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="register-payee-button" *ngIf="hasAccountNumbers">
+      <div class="row">
+        <div class="col-lg-5">
+          <button type="button" class="btn btn-outline-primary">Continue to Last Step</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <div class="add-payee">
+          <button type="button" class="btn btn-link" (click)="addNewPayee(content)">Add a new Institution</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="createPayee">
+      <div class="col-md-10">
+        <app-new-payee UserID="{{UserID}}" (PayeeCreated)="payeeCreated($event)" (CancelNewPayee)="cancelNewPayee($event)"></app-new-payee>
+      </div>
+    </div>
+
+    <div *ngFor="let item of lstPayees">
+      <div class="card">
+        <div class="card-block">
+          <app-payee-item ID="{{item.ID}}" UserID="{{UserID}}" Name="{{item.Name}}" AccountNumber="{{item.AccountNumber}}" (UserPayeeSaved)="userPayeeUpdated()"></app-payee-item>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="register-payee-button" *ngIf="hasAccountNumbers">
+      <div class="row">
+        <div class="col-lg-5">
+          <button type="button" class="btn btn-outline-primary">Continue to Last Step</button>
+        </div>
+      </div>
+    </div>
+  </div>

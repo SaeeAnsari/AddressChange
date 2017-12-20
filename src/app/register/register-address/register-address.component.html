@@ -1,0 +1,113 @@
+<div class="registerForm">
+  <form [formGroup]="addressForm" novalidate (ngSubmit)="saveAddress(addressForm.value, addressForm.valid)">
+    <div class="Message">
+      <div class="address-heading">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <h5>Step 2: Address Setup</h5>
+      </div>
+    </div>
+
+    <div class="address-container">
+      <div class="old-address">
+        <div class="Message">
+          <div class="address-heading">
+            <h6>Previous:</h6>
+          </div>
+          <label for="">Previous address that you updated</label>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="input-group"  [ngClass]="{
+              'has-danger': addressForm.controls.OldStreet.invalid && (addressForm.controls.OldStreet.dirty || addressForm.controls.OldStreet.touched),
+              'has-*': addressForm.controls.OldStreet.valid && (addressForm.controls.OldStreet.dirty || addressForm.controls.OldStreet.touched)
+            }">
+              <input type="text" formControlName="OldStreet" class="form-control" placeholder="Address" aria-describedby="basic-addon2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.OldCity.invalid && (addressForm.controls.OldCity.dirty || addressForm.controls.OldCity.touched),
+              'has-*': addressForm.controls.OldCity.valid && (addressForm.controls.OldCity.dirty || addressForm.controls.OldCity.touched)
+            }">
+              <input type="text" formControlName="OldCity" class="form-control" placeholder="City" aria-describedby="basic-addon2">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.OldPostalZip.invalid && (addressForm.controls.OldPostalZip.dirty || addressForm.controls.OldPostalZip.touched),
+              'has-*': addressForm.controls.OldPostalZip.valid && (addressForm.controls.OldPostalZip.dirty || addressForm.controls.OldPostalZip.touched)
+            }">
+              <input type="text" formControlName="OldPostalZip" class="form-control" placeholder="Postal/Zip" aria-describedby="basic-addon2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.OldCountry.invalid && (addressForm.controls.OldCountry.dirty || addressForm.controls.OldCountry.touched),
+              'has-*': addressForm.controls.OldCountry.valid && (addressForm.controls.OldCountry.dirty || addressForm.controls.OldCountry.touched)
+            }">
+              <input type="text" formControlName="OldCountry" class="form-control" placeholder="Country" aria-describedby="basic-addon2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="new-address">
+        <div class="Message">
+          <div class="address-heading">
+
+            <h6>New:</h6>
+          </div>
+          <label for="">New address that you need to be updated</label>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.NewStreet.invalid && (addressForm.controls.NewStreet.dirty || addressForm.controls.NewStreet.touched),
+              'has-*': addressForm.controls.NewStreet.valid && (addressForm.controls.NewStreet.dirty || addressForm.controls.NewStreet.touched)
+            }">
+              <input formControlName="NewStreet" type="text" class="form-control" placeholder="Address" aria-describedby="basic-addon2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.NewCity.invalid && (addressForm.controls.NewCity.dirty || addressForm.controls.NewCity.touched),
+              'has-*': addressForm.controls.NewCity.valid && (addressForm.controls.NewCity.dirty || addressForm.controls.NewCity.touched)
+            }">
+              <input type="text" formControlName="NewCity" class="form-control" placeholder="City" aria-describedby="basic-addon2">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.NewPostalZip.invalid && (addressForm.controls.NewPostalZip.dirty || addressForm.controls.NewPostalZip.touched),
+              'has-*': addressForm.controls.NewPostalZip.valid && (addressForm.controls.NewPostalZip.dirty || addressForm.controls.NewPostalZip.touched)
+            }">
+              <input type="text" formControlName="NewPostalZip" class="form-control" placeholder="Postal/Zip" aria-describedby="basic-addon2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="input-group" [ngClass]="{
+              'has-danger': addressForm.controls.NewCountry.invalid && (addressForm.controls.NewCountry.dirty || addressForm.controls.NewCountry.touched),
+              'has-*': addressForm.controls.NewCountry.valid && (addressForm.controls.NewCountry.dirty || addressForm.controls.NewCountry.touched)
+            }">
+              <input type="text" formControlName="NewCountry" class="form-control" placeholder="Country" aria-describedby="basic-addon2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <button type="submit" class="btn btn-outline-primary"  [disabled]="!addressForm.valid">Next</button>
+      </div>
+    </div>
+  </form>
+</div>

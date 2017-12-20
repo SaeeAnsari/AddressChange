@@ -1,0 +1,12 @@
+.address-container{
+    display:inline-flex;
+}
+
+
+.old-address{
+    float: left;
+    
+}
+.new-address{
+    float: right;
+}

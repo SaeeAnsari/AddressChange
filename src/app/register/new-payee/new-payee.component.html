@@ -1,0 +1,44 @@
+<form [formGroup]="payeeForm" novalidate (ngSubmit)="savePayee(payeeForm.value, payeeForm.valid)">
+
+  <div class="new-payee-container well">
+    <div class="row">
+      <div class="col-lg-6">
+        <h5>New Institution</h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group" [ngClass]="{
+          'has-danger': payeeForm.controls.Name.invalid && (payeeForm.controls.Name.dirty || payeeForm.controls.Name.touched),
+          'has-*': payeeForm.controls.Name.valid && (payeeForm.controls.Name.dirty || payeeForm.controls.Name.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for="">Name</label>
+          </span>
+          <input type="text" formControlName="Name" class="form-control" placeholder="Institution Name" aria-describedby="basic-addon2">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group" [ngClass]="{
+          'has-danger': payeeForm.controls.Country.invalid && (payeeForm.controls.Country.dirty || payeeForm.controls.Country.touched),
+          'has-*': payeeForm.controls.Country.valid && (payeeForm.controls.Country.dirty || payeeForm.controls.Country.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for="">Country</label>
+          </span>
+          <input type="text" formControlName="Country" class="form-control" placeholder="Country" aria-describedby="basic-addon2">
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-lg-5 payee-save">
+        <button type="submit" class="btn btn-primary" [disabled]="!payeeForm.valid">Save</button>
+        <button type="button" class="btn btn-outline-primary" (click)="cancelClicked()">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</form>

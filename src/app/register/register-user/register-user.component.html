@@ -1,0 +1,115 @@
+<div class="registerForm">
+
+
+  <div class="Message">
+    <div class="address-heading">
+      <i class="fa fa-street-view" aria-hidden="true"></i>
+      <h5>Step 1: User Registration</h5>
+    </div>
+  </div>
+  <form [formGroup]="userForm" novalidate (ngSubmit)="saveUser(userForm.value, userForm.valid)">
+
+
+
+
+
+    <div class="row">
+
+
+
+
+      <div class="col-lg-5">
+
+
+        <div class="input-group" [ngClass]="{
+          'has-danger': userForm.controls.FirstName.invalid && (userForm.controls.FirstName.dirty || userForm.controls.FirstName.touched),
+          'has-*': userForm.controls.FirstName.valid && (userForm.controls.FirstName.dirty || userForm.controls.FirstName.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for="">First</label>
+          </span>
+          <input type="text" formControlName="FirstName" class="form-control" placeholder="First Name" required>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="col-lg-5">
+        <div class="input-group" [ngClass]="{
+          'has-danger': userForm.controls.LastName.invalid && (userForm.controls.LastName.dirty || userForm.controls.LastName.touched),
+          'has-*': userForm.controls.LastName.valid && (userForm.controls.LastName.dirty || userForm.controls.LastName.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for="">Last</label>
+          </span>
+          <input type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon2">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="input-group" [ngClass]="{
+          'has-danger': userForm.controls.Email.invalid && (userForm.controls.Email.dirty || userForm.controls.Email.touched),
+          'has-*': userForm.controls.Email.valid && (userForm.controls.Email.dirty || userForm.controls.Email.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">@
+            <label for=""></label>
+          </span>
+          <input type="text" formControlName="Email" class="form-control" placeholder="Email as Username" aria-describedby="sizing-addon2"
+            required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="input-group" [ngClass]="{
+          'has-danger': userForm.controls.Phone.invalid && (userForm.controls.Phone.dirty || userForm.controls.Phone.touched),
+          'has-*': userForm.controls.Phone.valid && (userForm.controls.Phone.dirty || userForm.controls.Phone.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for=""></label>
+            <i class="fa fa-mobile" aria-hidden="true"></i>
+          </span>
+          <input type="text" ui-br-phone-number formControlName="Phone" class="form-control" placeholder="Phone" aria-describedby="sizing-addon2">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="input-group" [ngClass]="{
+          'has-danger': (userForm.controls.Password.invalid && (userForm.controls.Password.dirty || userForm.controls.Password.touched))  ,
+          'has-*': userForm.controls.Password.valid && (userForm.controls.Password.dirty || userForm.controls.Password.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for="">Password</label>
+          </span>
+          <input type="text" formControlName="Password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="input-group" [ngClass]="{
+          'has-danger': (userForm.controls.ConfirmPassword.invalid && (userForm.controls.ConfirmPassword.dirty || userForm.controls.ConfirmPassword.touched)) || passwordMatchError,
+          'has-*': userForm.controls.ConfirmPassword.valid && (userForm.controls.ConfirmPassword.dirty || userForm.controls.ConfirmPassword.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+            <label for="">Confirm</label>
+          </span>
+          <input type="text" formControlName="ConfirmPassword" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon2">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="register-user-button">
+          <button type="submit" class="btn btn-outline-primary" [disabled]="!userForm.valid">Next</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

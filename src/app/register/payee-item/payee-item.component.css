@@ -1,0 +1,10 @@
+.payee-item-buttons{
+    
+   font-size: 20pt;
+   color: #428bca;
+   display: inline-flex;  
+}
+
+.payee-list-item label {
+    color:red;
+}
