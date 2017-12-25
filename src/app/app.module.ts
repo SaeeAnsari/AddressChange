@@ -19,10 +19,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import {RegisterUserComponent} from './register/register-user/register-user.component';
-import { RegisterAddressComponent } from './Register/register-address/register-address.component';
-import { RegisterSearchablePayeeListComponent } from './Register/register-searchable-payee-list/register-searchable-payee-list.component';
+import { RegisterAddressComponent } from './register/register-address/register-address.component';
+import { RegisterSearchablePayeeListComponent } from './register/register-searchable-payee-list/register-searchable-payee-list.component';
 import { NewPayeeComponent } from './register/new-payee/new-payee.component';
 import { PayeeItemComponent } from './register/payee-item/payee-item.component';
+import { StepsHeaderComponent } from './register/steps-header/steps-header.component';
 
 
 
@@ -34,7 +35,8 @@ import { PayeeItemComponent } from './register/payee-item/payee-item.component';
     RegisterAddressComponent,
     RegisterSearchablePayeeListComponent,
     NewPayeeComponent,
-    PayeeItemComponent
+    PayeeItemComponent,
+    StepsHeaderComponent
   ],
   imports: [
     BrowserModule,

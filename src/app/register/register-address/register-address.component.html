@@ -1,4 +1,10 @@
-<div class="registerForm">
+<div class="registerForm regiterMainContainer">
+
+
+    <app-steps-header type="Address"></app-steps-header>
+
+
+
   <form [formGroup]="addressForm" novalidate (ngSubmit)="saveAddress(addressForm.value, addressForm.valid)">
     <div class="Message">
       <div class="address-heading">

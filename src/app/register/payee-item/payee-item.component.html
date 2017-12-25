@@ -1,37 +1,44 @@
-<form [formGroup]="payeeItem" novalidate (ngSubmit)="SaveUserPayee(payeeItem.value, payeeItem.valid)">
+<div class="registerForm regiterMainContainer">
 
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="payee-list-item">
-        <button type="button" class="btn btn-primary" (click)="payeeItemClicked()">Add</button>
-        <label>{{Name}}</label>
+  <form [formGroup]="payeeItem" novalidate (ngSubmit)="SaveUserPayee(payeeItem.value, payeeItem.valid)">
+
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="payee-list-item">
+          <button type="button" class="btn btn-primary" (click)="payeeItemClicked()">Add</button>
+          <label>{{Name}}</label>
+        </div>
       </div>
-    </div>
 
-    <div class="row" *ngIf="itemClicked">
-      <div class="col-lg-6">
-        <div class="input-group" [ngClass]="{
+      <div class="row" *ngIf="itemClicked">
+        <div class="col-lg-6">
+          <div class="input-group" [ngClass]="{
           'has-danger': payeeItem.controls.AccountNumber.invalid && (payeeItem.controls.AccountNumber.dirty || payeeItem.controls.AccountNumber.touched),
           'has-*': payeeItem.controls.AccountNumber.valid && (payeeItem.controls.AccountNumber.dirty || payeeItem.controls.AccountNumber.touched)
         }">
-          <input type="text" formControlName="AccountNumber" class="form-control" placeholder="Account #" aria-describedby="basic-addon2" value="{{AccountNumber}}">
+            <input type="text" formControlName="AccountNumber" class="form-control" placeholder="Account #" aria-describedby="basic-addon2"
+              value="{{AccountNumber}}">
+          </div>
         </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="input-group">
-          <div class="payee-item-buttons">
-            <div *ngIf="AccountNumber==''"><button type="submit" class="btn btn-outline-primary">Save</button></div>&nbsp;
-            <button type="button" class="btn btn-secondary" (click)="deletePayee()">Delete</button>
-            <!--
+        <div class="col-lg-3">
+          <div class="input-group">
+            <div class="payee-item-buttons">
+              <div *ngIf="AccountNumber==''">
+                <button type="submit" class="btn btn-outline-primary">Save</button>
+              </div>&nbsp;
+              <button type="button" class="btn btn-secondary" (click)="deletePayee()">Delete</button>
+              <!--
             <i class="fa fa-times" aria-hidden="true"></i>-->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1" *ngIf="itemSaved">
+          <div class="input-group">
+            <label for="">Saving...</label>
           </div>
         </div>
       </div>
-      <div class="col-lg-1" *ngIf="itemSaved">
-        <div class="input-group">
-          <label for="">Saving...</label>
-        </div>
-      </div>
     </div>
-  </div>
-</form>
+  </form>
+
+</div>
