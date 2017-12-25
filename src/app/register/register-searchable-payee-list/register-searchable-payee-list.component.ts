@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PayeeService } from '../../services/payee.service';
+import {UserService} from '../../services/user.service';
 import { identifierModuleUrl } from '@angular/compiler';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 import { Observable } from 'rxjs/Observable';
 // Observable class extensions
@@ -23,7 +25,7 @@ import 'rxjs/add/operator/switchMap';
   selector: 'app-register-searchable-payee-list',
   templateUrl: './register-searchable-payee-list.component.html',
   styleUrls: ['./register-searchable-payee-list.component.css'],
-  providers: [PayeeService]
+  providers: [PayeeService, UserService]
 })
 export class RegisterSearchablePayeeListComponent implements OnInit {
 
@@ -38,9 +40,12 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
   hasAccountNumbers = false;
 
 
-  constructor(private payeeService: PayeeService) { }
+  constructor(private payeeService: PayeeService, private userService: UserService) { }
 
   ngOnInit() {
+
+
+    this.UserID = this.userService.getLoggedInUserID();
 
 
     this.searchInput.valueChanges
@@ -63,7 +68,7 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
       });
       this.hasAccountNumbers = false;
       this.lstPayees.forEach(data => {
-        if (data.AccountNumber.length > 0) {
+        if (data.AccountNumber != null && data.AccountNumber.length > 0) {
           this.hasAccountNumbers = true;
         }
       });

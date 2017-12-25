@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { User } from '../interfaces/user';
-import {BaseLinkService} from '../services/base-link.service';
+import { BaseLinkService } from '../services/base-link.service';
 
 // Observable class extensions
 import 'rxjs/add/observable/of';
@@ -29,8 +29,8 @@ export class UserService {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this.http.post(this._url, user, options)
-    .map(data => data.json())
-    .catch(this.handleErrorObservable);
+      .map(data => data.json())
+      .catch(this.handleErrorObservable);
   }
 
   public SaveUserAddress(userID, oldAddress, newAddress): Observable<any> {
@@ -42,13 +42,33 @@ export class UserService {
       NewAddress: newAddress
     };
     return this.http.post(BaseLinkService.GetBaseUrl() + '/UserAddress', data, options)
-    .map(ret => ret.json())
-    .catch(this.handleErrorObservable);
+      .map(ret => ret.json())
+      .catch(this.handleErrorObservable);
   }
 
-  private handleErrorObservable (error: Response | any) {
+
+  public getUser(userID): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.get(this._url + '?id=' + userID)
+      .map(data => data.json())
+      .catch(this.handleErrorObservable);
+  }
+
+
+  public getUserOldNewAddress(userID): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.get(BaseLinkService.GetBaseUrl() +  '/UserAddress' +  '?id=' + userID)
+      .map(data => data.json())
+      .catch(this.handleErrorObservable);
+  }
+
+  private handleErrorObservable(error: Response | any) {
     console.error(error.message || error);
     return Observable.throw(error.message || error);
-      }
+  }
+
+  public  getLoggedInUserID(){
+    return 9;
+  }
 
 }

@@ -9,5 +9,6 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'register/user', component: RegisterUserComponent },
   { path: 'register/addresses', component: RegisterAddressComponent },
+  { path: 'register/addresses/:isNew', component: RegisterAddressComponent },
   { path: 'register/providers', component: RegisterSearchablePayeeListComponent}
 ];

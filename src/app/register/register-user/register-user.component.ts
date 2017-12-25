@@ -1,6 +1,12 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { ActivatedRoute } from '@angular/router';
+
+
+//PHONE NUMBER MASK TOOL
+//http://www.coderbro.com/angular2/2017/04/21/format-phone-number-in-form-input-with-angular2.html
+
 
 
 @Component({
@@ -14,16 +20,13 @@ export class RegisterUserComponent implements OnInit {
   public userForm: FormGroup;
   @Output() UserCreatedEvent = new EventEmitter();
   public passwordMatchError = false;
+  public mask: any[] = ['+', '1', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public userID = 0;
+  @Input() IsNew = '';
 
-  constructor(private _fb: FormBuilder, private userService: UserService) {
-    /*this.userForm = this._fb.group({
-      FirstName: ['', [<any>Validators.required, <any>Validators.minLength(2)]],
-      LastName: ['', [<any>Validators.required, <any>Validators.minLength(2)]],
-      Email: ['', [<any>Validators.required]],
-      Phone: ['', [<any>Validators.required, <any>Validators.minLength(10)]],
-      Password: ['', [<any>Validators.required, <any>Validators.minLength(6)]],
-      ConfirmPassword: ['', [Validators.required, <any>Validators.minLength(6)]]
-    });*/
+
+  constructor(private _fb: FormBuilder, private userService: UserService, private route: ActivatedRoute) {
+
 
     this.userForm = new FormGroup({
       FirstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -33,9 +36,24 @@ export class RegisterUserComponent implements OnInit {
       Password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
+
+    this.userID = this.userService.getLoggedInUserID();
+
+    this.userService.getUser(this.userID).subscribe(sub => {
+      this.userForm.setValue({
+        FirstName: sub.FirstName,
+        LastName: sub.LastName,
+        Email: sub.Email,
+        Phone: sub.Phone,
+        Password: sub.Password,
+        ConfirmPassword: sub.Password
+      });
+    });
   }
 
   ngOnInit() {
+
+
   }
 
   saveUser(model, isValid) {
@@ -50,6 +68,9 @@ export class RegisterUserComponent implements OnInit {
       // tslint:disable-next-line:one-line
       else {
         console.log('Entering Save');
+        if (this.userID > 0) {
+          model.ID = this.userID;
+        }
         this.userService.SaveUser(model).subscribe(sub => {
           if (sub != null) {
             sessionStorage.setItem('UserID', sub);

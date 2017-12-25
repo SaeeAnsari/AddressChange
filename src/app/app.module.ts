@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {routes} from './routes.config';
+import {TextMaskModule} from 'angular2-text-mask';
 
 
 
@@ -43,7 +44,8 @@ import { StepsHeaderComponent } from './register/steps-header/steps-header.compo
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    TextMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

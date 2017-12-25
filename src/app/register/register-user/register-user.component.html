@@ -48,7 +48,7 @@
           <span class="input-group-addon" id="sizing-addon2">
             <label for="">Last</label>
           </span>
-          <input type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon2">
+          <input type="text" formControlName="LastName" class="form-control" placeholder="Last Name" aria-describedby="basic-addon2">
         </div>
       </div>
     </div>
@@ -78,12 +78,14 @@
             <label for=""></label>
             <i class="fa fa-mobile" aria-hidden="true"></i>
           </span>
-          <input type="text" ui-br-phone-number formControlName="Phone" class="form-control" placeholder="Phone" aria-describedby="sizing-addon2">
+          <input type="text" placeholder="+1 (123) 456-7890"
+          [textMask]="{mask: mask}" 
+          formControlName="Phone" class="form-control" placeholder="Phone" aria-describedby="sizing-addon2">
         </div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row user-password">
       <div class="col-lg-5">
         <div class="input-group" [ngClass]="{
           'has-danger': (userForm.controls.Password.invalid && (userForm.controls.Password.dirty || userForm.controls.Password.touched))  ,
@@ -92,7 +94,7 @@
           <span class="input-group-addon" id="sizing-addon2">
             <label for="">Password</label>
           </span>
-          <input type="text" formControlName="Password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+          <input type="password" formControlName="Password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
         </div>
       </div>
       <div class="col-lg-5">
@@ -103,15 +105,15 @@
           <span class="input-group-addon" id="sizing-addon2">
             <label for="">Confirm</label>
           </span>
-          <input type="text" formControlName="ConfirmPassword" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon2">
+          <input type="password" formControlName="ConfirmPassword" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon2">
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-10">
-        <div class="register-user-button">
-          <button type="submit" class="btn btn-outline-primary" [disabled]="!userForm.valid">Next</button>
+        <div class="register-button">
+          <button type="submit" class="btn btn-outline-primary" [disabled]="!userForm.valid"><span *ngIf="IsNew == 'Yes'">Next</span><span *ngIf="IsNew != 'Yes'">Save</span></button>
         </div>
       </div>
     </div>
