@@ -57,7 +57,7 @@ export class UserService {
 
   public getUserOldNewAddress(userID): Observable<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.get(BaseLinkService.GetBaseUrl() +  '/UserAddress' +  '?id=' + userID)
+    return this.http.get(BaseLinkService.GetBaseUrl() + '/UserAddress' + '?id=' + userID)
       .map(data => data.json())
       .catch(this.handleErrorObservable);
   }
@@ -67,8 +67,12 @@ export class UserService {
     return Observable.throw(error.message || error);
   }
 
-  public  getLoggedInUserID(){
-    return 9;
+  public getLoggedInUserID() {
+    let userID = 0;
+    if (sessionStorage.getItem('UserID') != null && +sessionStorage.getItem('UserID') > 0) {
+      userID = +sessionStorage.getItem('UserID');
+    }
+    return userID;
   }
 
 }

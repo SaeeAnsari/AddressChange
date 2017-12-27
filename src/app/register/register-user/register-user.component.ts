@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 //PHONE NUMBER MASK TOOL
@@ -25,7 +25,7 @@ export class RegisterUserComponent implements OnInit {
   @Input() IsNew = '';
 
 
-  constructor(private _fb: FormBuilder, private userService: UserService, private route: ActivatedRoute) {
+  constructor(private _fb: FormBuilder, private userService: UserService, private route: ActivatedRoute, public router: Router) {
 
 
     this.userForm = new FormGroup({
@@ -36,24 +36,28 @@ export class RegisterUserComponent implements OnInit {
       Password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
-
-    this.userID = this.userService.getLoggedInUserID();
-
-    this.userService.getUser(this.userID).subscribe(sub => {
-      this.userForm.setValue({
-        FirstName: sub.FirstName,
-        LastName: sub.LastName,
-        Email: sub.Email,
-        Phone: sub.Phone,
-        Password: sub.Password,
-        ConfirmPassword: sub.Password
-      });
-    });
   }
 
   ngOnInit() {
 
-
+    this.route.params.subscribe(params => {
+      if (params['isNew'] && params['isNew'] === 'Yes') {
+        this.IsNew = params['isNew'];
+      }
+      else {
+        this.userID = this.userService.getLoggedInUserID();
+        this.userService.getUser(this.userID).subscribe(sub => {
+          this.userForm.setValue({
+            FirstName: sub.FirstName,
+            LastName: sub.LastName,
+            Email: sub.Email,
+            Phone: sub.Phone,
+            Password: sub.Password,
+            ConfirmPassword: sub.Password
+          });
+        });
+      }
+    });
   }
 
   saveUser(model, isValid) {
@@ -74,7 +78,9 @@ export class RegisterUserComponent implements OnInit {
         this.userService.SaveUser(model).subscribe(sub => {
           if (sub != null) {
             sessionStorage.setItem('UserID', sub);
-            this.UserCreatedEvent.emit({ userID: sub });
+            if (this.IsNew === 'Yes') {
+              this.router.navigate(['/register/addresses', this.IsNew]);
+            }
           }
         });
       }
