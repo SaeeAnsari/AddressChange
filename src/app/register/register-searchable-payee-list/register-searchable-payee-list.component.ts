@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PayeeService } from '../../services/payee.service';
-import {UserService} from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 import { identifierModuleUrl } from '@angular/compiler';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 import { Observable } from 'rxjs/Observable';
@@ -40,7 +41,11 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
   hasAccountNumbers = false;
 
 
-  constructor(private payeeService: PayeeService, private userService: UserService) { }
+  constructor(
+    private payeeService: PayeeService,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    public router: Router) { }
 
   ngOnInit() {
 
@@ -90,5 +95,9 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
 
   userPayeeUpdated() {
     this.loadPayees();
+  }
+
+  continueToConfirmation() {
+    this.router.navigate(['register/confirm']);
   }
 }

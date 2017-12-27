@@ -3,6 +3,7 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterUserComponent } from './register/register-user/register-user.component';
 import {RegisterAddressComponent} from './register/register-address/register-address.component';
 import {RegisterSearchablePayeeListComponent} from './register/register-searchable-payee-list/register-searchable-payee-list.component';
+import {UserConfirmationComponent} from './register/user-confirmation/user-confirmation.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,5 +13,7 @@ export const routes: Routes = [
   { path: 'register/addresses', component: RegisterAddressComponent },
   { path: 'register/addresses/:isNew', component: RegisterAddressComponent },
   { path: 'register/providers', component: RegisterSearchablePayeeListComponent},
-  { path: 'register/providers/:isNew', component: RegisterSearchablePayeeListComponent}
+  { path: 'register/providers/:isNew', component: RegisterSearchablePayeeListComponent},
+  { path: 'register/confirm', component: UserConfirmationComponent}
+
 ];

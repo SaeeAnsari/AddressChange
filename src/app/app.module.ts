@@ -25,6 +25,7 @@ import { RegisterSearchablePayeeListComponent } from './register/register-search
 import { NewPayeeComponent } from './register/new-payee/new-payee.component';
 import { PayeeItemComponent } from './register/payee-item/payee-item.component';
 import { StepsHeaderComponent } from './register/steps-header/steps-header.component';
+import { UserConfirmationComponent } from './register/user-confirmation/user-confirmation.component';
 
 
 
@@ -37,7 +38,8 @@ import { StepsHeaderComponent } from './register/steps-header/steps-header.compo
     RegisterSearchablePayeeListComponent,
     NewPayeeComponent,
     PayeeItemComponent,
-    StepsHeaderComponent
+    StepsHeaderComponent,
+    UserConfirmationComponent
   ],
   imports: [
     BrowserModule,
