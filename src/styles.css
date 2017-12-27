@@ -2,11 +2,15 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
 
-body {
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    font-size: 0.8rem;    
-    line-height: 1.5;
-    color: #292b2c;
+
+body {    
+    font-size: 1em;
+  line-height: 1.65714286em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  color: #565656;
+  font-weight: 400;
 }
 label{
     color:#292b2c;
@@ -14,6 +18,10 @@ label{
     font-weight: 100;
 }
 
+.lead {
+    font-size: 1.35714286em;
+    line-height: 1.68421053em; }
+  
 
 /*======== Register Section ==========*/
 .registerForm .row{
@@ -53,8 +61,25 @@ label{
 }
 
 
+
 .register-button{
     float: right;
+}
+
+header {
+    width: 800px;
+    
+   
+    margin: 0 auto;
+
+    border-bottom: 1px solid #c0c0c0;
+}
+header img{
+    vertical-align: inherit;
+        transition: all .4s ease-in-out;
+        height: 80px;
+        width: auto;
+        padding-bottom: 20px;
 }
 
 /*======== Register Section End ==========*/

@@ -13,15 +13,7 @@
   </div>
   <form [formGroup]="userForm" novalidate (ngSubmit)="saveUser(userForm.value, userForm.valid)">
 
-
-
-
-
     <div class="row">
-
-
-
-
       <div class="col-lg-5">
 
 
@@ -30,7 +22,7 @@
           'has-*': userForm.controls.FirstName.valid && (userForm.controls.FirstName.dirty || userForm.controls.FirstName.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">
-            <label for="">First</label>
+            First
           </span>
           <input type="text" formControlName="FirstName" class="form-control" placeholder="First Name" required>
         </div>
@@ -46,7 +38,7 @@
           'has-*': userForm.controls.LastName.valid && (userForm.controls.LastName.dirty || userForm.controls.LastName.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">
-            <label for="">Last</label>
+            Last
           </span>
           <input type="text" formControlName="LastName" class="form-control" placeholder="Last Name" aria-describedby="basic-addon2">
         </div>
@@ -61,7 +53,7 @@
           'has-*': userForm.controls.Email.valid && (userForm.controls.Email.dirty || userForm.controls.Email.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">@
-            <label for=""></label>
+            
           </span>
           <input type="text" formControlName="Email" class="form-control" placeholder="Email as Username" aria-describedby="sizing-addon2"
             required>
@@ -75,7 +67,7 @@
           'has-*': userForm.controls.Phone.valid && (userForm.controls.Phone.dirty || userForm.controls.Phone.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">
-            <label for=""></label>
+            
             <i class="fa fa-mobile" aria-hidden="true"></i>
           </span>
           <input type="text" placeholder="+1 (123) 456-7890"
@@ -92,7 +84,7 @@
           'has-*': userForm.controls.Password.valid && (userForm.controls.Password.dirty || userForm.controls.Password.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">
-            <label for="">Password</label>
+            Password
           </span>
           <input type="password" formControlName="Password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
         </div>
@@ -103,7 +95,7 @@
           'has-*': userForm.controls.ConfirmPassword.valid && (userForm.controls.ConfirmPassword.dirty || userForm.controls.ConfirmPassword.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">
-            <label for="">Confirm</label>
+            Confirm
           </span>
           <input type="password" formControlName="ConfirmPassword" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon2">
         </div>

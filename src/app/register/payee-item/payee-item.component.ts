@@ -23,6 +23,9 @@ export class PayeeItemComponent implements OnInit {
   private itemSaved = false;
   private itemClicked = false;
 
+  public mask: any[] = ['+', '1', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+
   constructor(public payeeService: PayeeService) {
     this.payeeItem = new FormGroup({
       AccountNumber: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)])
