@@ -1,26 +1,21 @@
 <div class="dash-card">
 
   <div class="card">
-    <h5 class="card-header">User Details</h5>
+    <h6 class="card-header">User Details</h6>
     <div class="card-block view-section">
-
-      <table>
-        <tr>
-          <td>Name:</td>
-          <td>{{user.FirstName}} {{user.LastName}}</td>
-        </tr>
-
-        <tr>
-          <td>Email:</td>
-          <td>{{user.Email}}</td>
-        </tr>
-
-        <tr>
-          <td>Phone:</td>
-          <td>{{user.Phone}}</td>
-        </tr>
-      </table>      
-
+      <div class="view-section">
+      <div class="row">
+        <div class="col-md-1.5">Name: </div>
+        <div class="col-md-3">{{user.FirstName}} {{user.LastName}}</div>
+        <div class="col-md-1.5">Emal: </div>
+        <div class="col-md-3">{{user.Email}}</div>
+        
+      </div>
+      <div class="row">
+          <div class="col-md-1.5">Phone: </div>
+          <div class="col-md-3">{{user.Phone}}</div>
+      </div>
+    </div>
       <a href="#" class="btn btn-primary">Edit</a>
 
     </div>
