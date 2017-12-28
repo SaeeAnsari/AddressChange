@@ -30,6 +30,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {UserDetailsViewComponent} from './dashboard/user-details-view/user-details-view.component';
 import { UserAddressComponent } from './dashboard/user-address/user-address.component';
 import { PayeeDataComponent } from './dashboard/payee-data/payee-data.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -48,7 +49,8 @@ import { PayeeDataComponent } from './dashboard/payee-data/payee-data.component'
     DashboardComponent,
     UserDetailsViewComponent,
     UserAddressComponent,
-    PayeeDataComponent
+    PayeeDataComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
