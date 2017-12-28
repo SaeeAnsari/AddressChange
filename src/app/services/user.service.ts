@@ -54,6 +54,14 @@ export class UserService {
       .catch(this.handleErrorObservable);
   }
 
+  public loginUser(email, password): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.get(this._url + '?email=' + email + '&password=' + password)
+      .map(data => data.json())
+      .catch(this.handleErrorObservable);
+  }
+
+
 
   public getUserOldNewAddress(userID): Observable<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });

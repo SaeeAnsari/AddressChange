@@ -107,7 +107,7 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
       this.router.navigate(['register/confirm']);
     }
     else {
-      this.router.navigate(['register/dashboard']);
+      this.router.navigate(['dashboard']);
     }
   }
 }

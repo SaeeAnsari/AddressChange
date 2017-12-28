@@ -82,7 +82,7 @@ export class RegisterUserComponent implements OnInit {
               this.router.navigate(['/register/addresses', this.IsNew]);
             }
             else {
-              this.router.navigate(['register/dashboard']);
+              this.router.navigate(['dashboard']);
             }
           }
         });

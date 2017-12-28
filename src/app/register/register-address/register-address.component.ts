@@ -79,7 +79,7 @@ export class RegisterAddressComponent implements OnInit {
             this.router.navigate(['register/providers', this.IsNew]);
           }
           else {
-            this.router.navigate(['register/dashboard']);
+            this.router.navigate(['dashboard']);
           }
         }
       });

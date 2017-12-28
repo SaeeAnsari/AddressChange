@@ -1,3 +1,64 @@
-<p>
-  login works!
-</p>
+<div class="container-login">
+
+  <form [formGroup]="loginForm" novalidate (ngSubmit)="loginUser(loginForm.value, loginForm.valid)">
+
+
+    <div class="login">
+
+
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="input-group">
+            <h4>Members Login</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="input-group" [ngClass]="{
+            'has-danger': loginForm.controls.Email.invalid && (loginForm.controls.Email.dirty || loginForm.controls.Email.touched),
+            'has-*': loginForm.controls.Email.valid && (loginForm.controls.Email.dirty || loginForm.controls.Email.touched)
+          }">
+            <span class="input-group-addon" id="sizing-addon2">
+              <i class="fa fa-envelope" aria-hidden="true"></i> Email
+            </span>
+            <input type="text" class="form-control" formControlName="Email"  placeholder="acmeInc@gmail.com" aria-describedby="basic-addon2">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">
+              <i class="fa fa-key" aria-hidden="true"></i>Password
+            </span>
+            <input type="password" formControlName="Password"  class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="failedLogin">
+          <div class="col-lg-10">
+            <div class="input-group">
+             <div class="alert alert-danger">* Email and Password are not valid</div>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="input-group">
+            <div class="login-button">
+
+              <button type="button" class="btn btn-link" (click)="registerClick()">
+                Lets Get Started! Register
+              </button>
+
+              <button type="submit" class="btn btn-outline-primary pull-right" [disabled]="!loginForm.valid">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

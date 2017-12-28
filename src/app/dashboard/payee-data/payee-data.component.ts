@@ -23,7 +23,7 @@ export class PayeeDataComponent implements OnInit {
 
   ngOnInit() {
     this.UserID = this.userService.getLoggedInUserID();
-    this.UserID = 15;
+   
     this.loadPayees();
   }
 

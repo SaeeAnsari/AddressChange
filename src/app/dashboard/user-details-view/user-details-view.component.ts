@@ -19,7 +19,7 @@ export class UserDetailsViewComponent implements OnInit {
 
   ngOnInit() {
     this.UserID = this.userService.getLoggedInUserID();
-    this.UserID = 15;
+    
     this.loadUser();
   }
 

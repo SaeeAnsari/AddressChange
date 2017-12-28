@@ -5,9 +5,10 @@ import {RegisterAddressComponent} from './register/register-address/register-add
 import {RegisterSearchablePayeeListComponent} from './register/register-searchable-payee-list/register-searchable-payee-list.component';
 import {UserConfirmationComponent} from './register/user-confirmation/user-confirmation.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {LoginComponent} from './login/login.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'register/user', component: RegisterUserComponent },
   { path: 'register/user/:isNew', component: RegisterUserComponent },
