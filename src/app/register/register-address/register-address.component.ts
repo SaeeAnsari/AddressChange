@@ -31,14 +31,14 @@ export class RegisterAddressComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.UserID = this.userService.getLoggedInUserID();
+
     this.route.params.subscribe(params => {
       if (params['isNew'] && params['isNew'] === 'Yes') {
         this.IsNew = params['isNew'];
-        this.UserID = this.userService.getLoggedInUserID();
       }
       else {
-
-
         this.userService.getUserOldNewAddress(this.UserID).subscribe(sub => {
           this.addressForm.setValue({
             OldCity: sub.OldAddress.City,

@@ -77,7 +77,7 @@ export class RegisterUserComponent implements OnInit {
         }
         this.userService.SaveUser(model).subscribe(sub => {
           if (sub != null) {
-            sessionStorage.setItem('UserID', sub);
+            sessionStorage.setItem('UserID', this.IsNew ? sub : this.userID);
             if (this.IsNew === 'Yes') {
               this.router.navigate(['/register/addresses', this.IsNew]);
             }

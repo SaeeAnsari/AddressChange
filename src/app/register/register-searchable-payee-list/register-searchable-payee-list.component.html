@@ -52,7 +52,10 @@
     <div class="register-payee-button" *ngIf="hasAccountNumbers">
       <div class="row">
         <div class="col-lg-5">
-          <button type="button" class="btn btn-outline-primary" (click)="continueToConfirmation()">Continue to Last Step</button>
+          <button type="button" class="btn btn-outline-primary" (click)="continueToConfirmation()">
+            <span *ngIf="IsNew">Continue to Last Step</span>
+            <span *ngIf="!IsNew">Save</span>
+          </button>
         </div>
       </div>
     </div>
@@ -84,7 +87,11 @@
     <div class="register-payee-button" *ngIf="hasAccountNumbers">
       <div class="row">
         <div class="col-lg-5">
-          <button type="button" class="btn btn-outline-primary" (click)="continueToConfirmation()">Continue to Last Step</button>
+          <button type="button" class="btn btn-outline-primary" (click)="continueToConfirmation()">
+
+            <span *ngIf="IsNew">Continue to Last Step</span>
+            <span *ngIf="!IsNew">Save</span>
+          </button>
         </div>
       </div>
     </div>
