@@ -26,6 +26,11 @@ import { NewPayeeComponent } from './register/new-payee/new-payee.component';
 import { PayeeItemComponent } from './register/payee-item/payee-item.component';
 import { StepsHeaderComponent } from './register/steps-header/steps-header.component';
 import { UserConfirmationComponent } from './register/user-confirmation/user-confirmation.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {UserDetailsViewComponent} from './dashboard/user-details-view/user-details-view.component';
+import { UserAddressComponent } from './dashboard/user-address/user-address.component';
+import { PayeeDataComponent } from './dashboard/payee-data/payee-data.component';
+
 
 
 
@@ -39,7 +44,11 @@ import { UserConfirmationComponent } from './register/user-confirmation/user-con
     NewPayeeComponent,
     PayeeItemComponent,
     StepsHeaderComponent,
-    UserConfirmationComponent
+    UserConfirmationComponent,
+    DashboardComponent,
+    UserDetailsViewComponent,
+    UserAddressComponent,
+    PayeeDataComponent
   ],
   imports: [
     BrowserModule,

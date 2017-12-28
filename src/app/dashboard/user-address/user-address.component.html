@@ -1,0 +1,41 @@
+<div class="dash-card">
+
+  <div class="card">
+    <h5 class="card-header">Address</h5>
+    <div class="card-block view-section">
+
+      <div>
+        <h5>Old Address</h5>
+        <table id="oldAddress">
+          <tr>
+            <td>Old Address:</td>
+            <td>{{oldAddress.Street}} </td>
+          </tr>
+          <tr>
+            <td>City:</td>
+            <td>{{oldAddress.City}} {{oldAddress.PostalZip}}</td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div class="new-address">
+        <h5>New Address</h5>
+      
+      <table id="newAddress">
+        <tr>
+          <td>New Address:</td>
+          <td>{{newAddress.Street}} {{newAddress.City}}</td>
+        </tr>
+        <tr>
+          <td>City:</td>
+          <td>{{newAddress.City}} {{newAddress.PostalZip}}</td>
+        </tr>
+      </table>
+    </div>
+
+      <a href="#" class="btn btn-primary">Edit</a>
+
+    </div>
+
+  </div>

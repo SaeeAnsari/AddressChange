@@ -4,6 +4,7 @@ import { RegisterUserComponent } from './register/register-user/register-user.co
 import {RegisterAddressComponent} from './register/register-address/register-address.component';
 import {RegisterSearchablePayeeListComponent} from './register/register-searchable-payee-list/register-searchable-payee-list.component';
 import {UserConfirmationComponent} from './register/user-confirmation/user-confirmation.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,6 @@ export const routes: Routes = [
   { path: 'register/addresses/:isNew', component: RegisterAddressComponent },
   { path: 'register/providers', component: RegisterSearchablePayeeListComponent},
   { path: 'register/providers/:isNew', component: RegisterSearchablePayeeListComponent},
-  { path: 'register/confirm', component: UserConfirmationComponent}
-
+  { path: 'register/confirm', component: UserConfirmationComponent},
+  { path: 'dashboard', component: DashboardComponent }
 ];
