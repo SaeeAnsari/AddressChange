@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-details-view',
@@ -14,7 +15,7 @@ export class UserDetailsViewComponent implements OnInit {
   @Input() UserID = 0;
   public user = {};
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.UserID = this.userService.getLoggedInUserID();
@@ -28,4 +29,7 @@ export class UserDetailsViewComponent implements OnInit {
     });
   }
 
+  public editClicked(){
+    this.router.navigate(['register/user']);
+  }
 }

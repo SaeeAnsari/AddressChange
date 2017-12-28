@@ -11,7 +11,7 @@
             <h6>Old Address</h6>
             <table id="oldAddress">
               <tr>
-                <td>Old Address:</td>
+                <td>Street:</td>
                 <td>{{oldAddress.Street}} </td>
               </tr>
               <tr>
@@ -29,7 +29,7 @@
 
             <table id="newAddress">
               <tr>
-                <td>New Address:</td>
+                <td>Street:</td>
                 <td>{{newAddress.Street}} {{newAddress.City}}</td>
               </tr>
               <tr>
@@ -43,7 +43,7 @@
 
 
 
-      <a href="#" class="btn btn-primary">Edit</a>
+      <button class="btn btn-primary" (click) = "editClicked()">Edit</button>
 
     </div>
 

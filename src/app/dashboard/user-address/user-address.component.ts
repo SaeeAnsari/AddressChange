@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-address',
@@ -14,7 +14,7 @@ export class UserAddressComponent implements OnInit {
   public newAddress = {};
   public oldAddress = {};
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.UserID = this.userService.getLoggedInUserID();
@@ -27,5 +27,9 @@ export class UserAddressComponent implements OnInit {
       this.newAddress = sub.NewAddress;
       this.oldAddress = sub.OldAddress;
     });
+  }
+
+  public editClicked(){
+    this.router.navigate(['register/addresses']);
   }
 }

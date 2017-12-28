@@ -37,7 +37,7 @@ export class RegisterAddressComponent implements OnInit {
         this.UserID = this.userService.getLoggedInUserID();
       }
       else {
-     
+
 
         this.userService.getUserOldNewAddress(this.UserID).subscribe(sub => {
           this.addressForm.setValue({
@@ -75,7 +75,12 @@ export class RegisterAddressComponent implements OnInit {
 
       this.userService.SaveUserAddress(this.UserID, oldAddress, newAddress).subscribe(sub => {
         if (sub != null) {
-          this.router.navigate(['register/providers', this.IsNew]);
+          if (this.IsNew === 'Yes') {
+            this.router.navigate(['register/providers', this.IsNew]);
+          }
+          else {
+            this.router.navigate(['register/dashboard']);
+          }
         }
       });
     }

@@ -81,6 +81,9 @@ export class RegisterUserComponent implements OnInit {
             if (this.IsNew === 'Yes') {
               this.router.navigate(['/register/addresses', this.IsNew]);
             }
+            else {
+              this.router.navigate(['register/dashboard']);
+            }
           }
         });
       }

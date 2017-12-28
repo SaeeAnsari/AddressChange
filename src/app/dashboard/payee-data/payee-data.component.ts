@@ -42,4 +42,8 @@ export class PayeeDataComponent implements OnInit {
       this.lstPayees = payeesUnfilteres.filter(item => item.AccountNumber != null);
     });
   }
+
+  public editClicked(){
+    this.router.navigate(['register/providers']);
+  }
 }

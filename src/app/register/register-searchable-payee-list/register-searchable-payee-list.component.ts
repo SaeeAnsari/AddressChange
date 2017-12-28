@@ -5,7 +5,6 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 import { Observable } from 'rxjs/Observable';
 // Observable class extensions
 import 'rxjs/add/observable/of';
@@ -33,6 +32,7 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
   private createPayee = false;
 
   @Input() UserID: number;
+  @Input() IsNew = '';
   closeResult: string;
   private lstPayees = [];
   searchVal = '';
@@ -49,6 +49,11 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
 
   ngOnInit() {
 
+    this.route.params.subscribe(params => {
+      if (params['isNew'] && params['isNew'] === 'Yes') {
+        this.IsNew = params['isNew'];
+      }
+    });
 
     this.UserID = this.userService.getLoggedInUserID();
 
@@ -98,6 +103,11 @@ export class RegisterSearchablePayeeListComponent implements OnInit {
   }
 
   continueToConfirmation() {
-    this.router.navigate(['register/confirm']);
+    if (this.IsNew === 'Yes') {
+      this.router.navigate(['register/confirm']);
+    }
+    else {
+      this.router.navigate(['register/dashboard']);
+    }
   }
 }
