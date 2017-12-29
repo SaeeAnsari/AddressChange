@@ -1,0 +1,13 @@
+.slide-container{
+    width: 100%;
+    min-height: 250px;
+    background-image: url('../assets/images/slider/3.png');
+    background-size: 100% auto;
+    background-position: 5% 20%;
+}
+
+.slide-container .slide-captions{
+    position: absolute;
+    top:150px;
+    left:120px;
+}

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="payee-list-item">
-        <button type="button" class="btn btn-primary" (click)="payeeItemClicked()">Add</button>
+        <button type="button" class="btn btn-sm btn-primary" (click)="payeeItemClicked()">Add</button>
         <label>{{Name}}</label>
       </div>
     </div>
@@ -23,9 +23,9 @@
         <div class="input-group">
           <div class="payee-item-buttons">
             <div *ngIf="AccountNumber==''">
-              <button type="submit" class="btn btn-outline-primary">Save</button>
+              <button type="submit" class="btn btn-sm btn-primary">Save</button>
             </div>&nbsp;
-            <button type="button" class="btn btn-secondary" (click)="deletePayee()">Delete</button>            
+            <button type="button" class="btn btn-sm btn-primary" (click)="deletePayee()">Delete</button>            
           </div>
         </div>
       </div>

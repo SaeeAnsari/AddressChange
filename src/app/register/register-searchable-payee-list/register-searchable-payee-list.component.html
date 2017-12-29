@@ -40,7 +40,7 @@
             <input class="form-control" [(ngModel)]="searchVal" [formControl]="searchInput" placeholder="Search" name="srch-term" id="srch-term"
               type="text">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
+              <button class="btn btn-sm btn-sm btn-primary" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
             </div>
@@ -52,7 +52,7 @@
     <div class="register-payee-button" *ngIf="hasAccountNumbers">
       <div class="row">
         <div class="col-lg-5">
-          <button type="button" class="btn btn-outline-primary" (click)="continueToConfirmation()">
+          <button type="button" class="btn btn-sm btn-primary" (click)="continueToConfirmation()">
             <span *ngIf="IsNew">Continue to Last Step</span>
             <span *ngIf="!IsNew">Save</span>
           </button>
@@ -63,7 +63,7 @@
     <div class="row">
       <div class="col-md-10">
         <div class="add-payee">
-          <button type="button" class="btn btn-link" (click)="addNewPayee(content)">Add a new Institution</button>
+          <button type="button" class="btn btn-sm btn-sm btn-success" (click)="addNewPayee(content)">Add a new Institution</button>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@
     <div class="register-payee-button" *ngIf="hasAccountNumbers">
       <div class="row">
         <div class="col-lg-5">
-          <button type="button" class="btn btn-outline-primary" (click)="continueToConfirmation()">
+          <button type="button" class="btn btn-sm btn-sm btn-primary" (click)="continueToConfirmation()">
 
             <span *ngIf="IsNew">Continue to Last Step</span>
             <span *ngIf="!IsNew">Save</span>
