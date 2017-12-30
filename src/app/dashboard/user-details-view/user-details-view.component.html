@@ -12,8 +12,11 @@
 
         </div>
         <div class="row">
-          <div class="col-md-1.5">Phone: </div>
-          <div class="col-md-3">{{user.Phone}}</div>
+            <div class="col-md-1.5">Phone: </div>
+            <div class="col-md-4">{{user.Phone}}</div>
+            <div class="col-md-1.5">Move: </div>
+            <div class="col-md-5">{{user.DateOfMove.month}}/{{user.DateOfMove.day}}/{{user.DateOfMove.year}}</div>
+  
         </div>
       </div>
       <button class="btn btn-sm btn-primary" (click)="editClicked()">Edit</button>

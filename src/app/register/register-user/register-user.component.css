@@ -3,3 +3,10 @@
     padding-top: 40px;
 }
 
+.ngb-dp-arrow right .btn{
+    color: black;
+}
+
+.input-group span{
+    min-width:60px;
+}

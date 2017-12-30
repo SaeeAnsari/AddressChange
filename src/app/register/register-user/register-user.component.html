@@ -53,7 +53,7 @@
           'has-*': userForm.controls.Email.valid && (userForm.controls.Email.dirty || userForm.controls.Email.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">@
-            
+
           </span>
           <input type="text" formControlName="Email" class="form-control" placeholder="Email as Username" aria-describedby="sizing-addon2"
             required>
@@ -67,12 +67,29 @@
           'has-*': userForm.controls.Phone.valid && (userForm.controls.Phone.dirty || userForm.controls.Phone.touched)
         }">
           <span class="input-group-addon" id="sizing-addon2">
-            
+
             <i class="fa fa-mobile" aria-hidden="true"></i>
           </span>
-          <input type="text" placeholder="+1 (123) 456-7890"
-          [textMask]="{mask: mask}" 
-          formControlName="Phone" class="form-control" placeholder="Phone" aria-describedby="sizing-addon2">
+          <input type="text" placeholder="+1 (123) 456-7890" [textMask]="{mask: mask}" formControlName="Phone" class="form-control"
+            placeholder="Phone" aria-describedby="sizing-addon2">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="input-group" [ngClass]="{
+          'has-danger': userForm.controls.DateOfMove.invalid && (userForm.controls.DateOfMove.dirty || userForm.controls.DateOfMove.touched),
+          'has-*': userForm.controls.DateOfMove.valid && (userForm.controls.DateOfMove.dirty || userForm.controls.DateOfMove.touched)
+        }">
+          <span class="input-group-addon" id="sizing-addon2">
+
+            Date:
+          </span>
+          <input class="form-control" placeholder="mm-dd-yyyy" name="dp" formControlName="DateOfMove" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+          <button class="input-group-addon" (click)="d.toggle()" type="button">
+            <i class="fa fa-calendar" aria-hidden="true" style="width: 1.2rem; height: 1rem; cursor: pointer;"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -108,7 +125,10 @@
     <div class="row">
       <div class="col-lg-10">
         <div class="register-button">
-          <button type="submit" class="btn btn-sm btn-primary" [disabled]="!userForm.valid"><span *ngIf="IsNew == 'Yes'">Next</span><span *ngIf="IsNew != 'Yes'">Save</span></button>
+          <button type="submit" class="btn btn-sm btn-primary" [disabled]="!userForm.valid">
+            <span *ngIf="IsNew == 'Yes'">Next</span>
+            <span *ngIf="IsNew != 'Yes'">Save</span>
+          </button>
         </div>
       </div>
     </div>

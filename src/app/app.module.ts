@@ -31,7 +31,7 @@ import {UserDetailsViewComponent} from './dashboard/user-details-view/user-detai
 import { UserAddressComponent } from './dashboard/user-address/user-address.component';
 import { PayeeDataComponent } from './dashboard/payee-data/payee-data.component';
 import { LoginComponent } from './login/login.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -59,7 +59,8 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    TextMaskModule
+    TextMaskModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

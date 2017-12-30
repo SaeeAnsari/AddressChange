@@ -2,10 +2,11 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-//PHONE NUMBER MASK TOOL
-//http://www.coderbro.com/angular2/2017/04/21/format-phone-number-in-form-input-with-angular2.html
+// PHONE NUMBER MASK TOOL
+// http://www.coderbro.com/angular2/2017/04/21/format-phone-number-in-form-input-with-angular2.html
 
 
 
@@ -24,6 +25,8 @@ export class RegisterUserComponent implements OnInit {
   public userID = 0;
   @Input() IsNew = '';
 
+  model;
+
 
   constructor(private _fb: FormBuilder, private userService: UserService, private route: ActivatedRoute, public router: Router) {
 
@@ -33,6 +36,7 @@ export class RegisterUserComponent implements OnInit {
       LastName: new FormControl(''),
       Email: new FormControl('', [Validators.required, Validators.pattern('[^ @]*@[^ @]*')]),
       Phone: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      DateOfMove: new FormControl('', [Validators.required]),
       Password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       ConfirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
@@ -53,7 +57,9 @@ export class RegisterUserComponent implements OnInit {
             Email: sub.Email,
             Phone: sub.Phone,
             Password: sub.Password,
-            ConfirmPassword: sub.Password
+            ConfirmPassword: sub.Password,
+            DateOfMove: { year: sub.DateOfMove.year, month: sub.DateOfMove.month, day: sub.DateOfMove.day }
+
           });
         });
       }
@@ -62,6 +68,7 @@ export class RegisterUserComponent implements OnInit {
 
   saveUser(model, isValid) {
 
+
     this.passwordMatchError = false;
 
     if (isValid) {
@@ -69,6 +76,7 @@ export class RegisterUserComponent implements OnInit {
       if (model.Password !== model.ConfirmPassword) {
         this.passwordMatchError = true;
       }
+
       // tslint:disable-next-line:one-line
       else {
         console.log('Entering Save');
@@ -81,6 +89,7 @@ export class RegisterUserComponent implements OnInit {
             if (this.IsNew === 'Yes') {
               this.router.navigate(['/register/addresses', this.IsNew]);
             }
+            // tslint:disable-next-line:one-line
             else {
               this.router.navigate(['dashboard']);
             }
