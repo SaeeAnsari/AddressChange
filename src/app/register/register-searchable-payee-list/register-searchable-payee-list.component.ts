@@ -29,12 +29,12 @@ import 'rxjs/add/operator/switchMap';
 })
 export class RegisterSearchablePayeeListComponent implements OnInit {
 
-  private createPayee = false;
+  public createPayee = false;
 
   @Input() UserID: number;
   @Input() IsNew = '';
   closeResult: string;
-  private lstPayees = [];
+  public lstPayees = [];
   searchVal = '';
   searchInput = new FormControl();
 

@@ -43,6 +43,6 @@ export class LoginComponent implements OnInit {
   }
 
   registerClick(){
-    this.router.navigate(['register']);
+    this.router.navigate(['register/user', 'Yes']);
   }
 }

@@ -9,7 +9,7 @@ export class BaseLinkService {
   // tslint:disable-next-line:member-ordering
   static GetBaseUrl() {
 
-     return 'http://localhost:51633/api/';
+     return 'http://saeedansari-001-site5.itempurl.com/api/';
    }
 
 }

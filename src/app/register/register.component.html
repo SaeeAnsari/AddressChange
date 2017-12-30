@@ -1,20 +1,21 @@
 <div class="regiterMainContainer">
-    
-<app-register-address UserID="{{userID}}" (UserAddressSaved)= "userAddresSaved($event)"></app-register-address>
+
+  <app-register-user (UserCreatedEvent)="userCreated($event)"></app-register-user>
+
+
+  <!--
+
+    <app-register-address UserID="{{userID}}" (UserAddressSaved)= "userAddresSaved($event)"></app-register-address>
 
   
-    
-  
-   <!--
-
         <app-register-searchable-payee-list UserID="{{userID}}" ></app-register-searchable-payee-list>
     
-      <app-register-user (UserCreatedEvent)="userCreated($event)"></app-register-user>
+   
 
     
   
    
     
   -->
-  
+
 </div>
