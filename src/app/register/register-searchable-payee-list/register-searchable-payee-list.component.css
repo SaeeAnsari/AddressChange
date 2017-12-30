@@ -13,3 +13,8 @@
 .payee-search{
     padding-bottom: 30px;
 }
+
+[data-balloon]:after {
+    background-color: #00aabb;
+}
+

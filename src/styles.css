@@ -48,6 +48,10 @@ p{
     padding: 5px;
 }
 
+.registerForm {
+  min-height:1000px;
+}
+
 .Message{
     
     padding-left: 10px;

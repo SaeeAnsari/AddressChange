@@ -13,19 +13,12 @@
 
 
     <div class="row">
-      <div class="col-lg-10">
-        <label for="">Please search or select all companies that are currently sening you mail you need moved</label>
+      <div class="col-lg-12">
+        <label for="">Please search or select all companies you need moved to the new address</label>
         <div class="well">
           <div>
             <p>
-              <b>
-                <label for="">Easy: Open your Online Banking and simply add all your bills and account numbers from the bank site to here.
-                  This will allow us to notify the Vendors to change your address.</label>
-              </b>
-            </p>
-            <p>
-              <label for="">DO NOT ADD any credit card company Account #'s as that is commonly also the credit card number, simply just
-                check is credit card checkbox</label>
+              NOTE: Please make sure you enter the phone # they have on file for you. This is how we will ask them to identify you.
             </p>
           </div>
         </div>
@@ -53,7 +46,7 @@
       <div class="row">
         <div class="col-lg-5">
           <button type="button" class="btn btn-sm btn-primary" (click)="continueToConfirmation()">
-            <span *ngIf="IsNew">Continue to Last Step</span>
+            <span *ngIf="IsNew">Next</span>
             <span *ngIf="!IsNew">Save</span>
           </button>
         </div>
@@ -64,6 +57,8 @@
       <div class="col-md-10">
         <div class="add-payee">
           <button type="button" class="btn btn-sm btn-sm btn-success" (click)="addNewPayee(content)">Add a new Institution</button>
+          <span data-balloon-visible data-balloon="Cant find the institution? .. Just add it" data-balloon-pos="right"></span>
+
         </div>
       </div>
     </div>
@@ -75,10 +70,12 @@
     </div>
 
     <div class="payee-cards">
-      <div *ngFor="let item of lstPayees">
-        <div class="card">
-          <div class="card-block">
-            <app-payee-item ID="{{item.ID}}" UserID="{{UserID}}" Name="{{item.Name}}" AccountNumber="{{item.AccountNumber}}" (UserPayeeSaved)="userPayeeUpdated()"></app-payee-item>
+      <div >
+        <div *ngFor="let item of lstPayees">
+          <div class="card">
+            <div class="card-block">
+              <app-payee-item ID="{{item.ID}}" UserID="{{UserID}}" Name="{{item.Name}}" AccountNumber="{{item.AccountNumber}}" (UserPayeeSaved)="userPayeeUpdated()"></app-payee-item>
+            </div>
           </div>
         </div>
       </div>
@@ -89,7 +86,7 @@
         <div class="col-lg-5">
           <button type="button" class="btn btn-sm btn-sm btn-primary" (click)="continueToConfirmation()">
 
-            <span *ngIf="IsNew">Continue to Last Step</span>
+            <span *ngIf="IsNew">Next</span>
             <span *ngIf="!IsNew">Save</span>
           </button>
         </div>
