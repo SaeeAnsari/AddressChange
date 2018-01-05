@@ -87,7 +87,7 @@ export class RegisterUserComponent implements OnInit {
           if (sub != null) {
             sessionStorage.setItem('UserID', this.IsNew ? sub : this.userID);
             if (this.IsNew === 'Yes') {
-              this.router.navigate(['/register/addresses', this.IsNew]);
+              this.router.navigate(['register/addresses', this.IsNew]);
             }
             // tslint:disable-next-line:one-line
             else {

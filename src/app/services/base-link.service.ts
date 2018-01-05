@@ -9,7 +9,8 @@ export class BaseLinkService {
   // tslint:disable-next-line:member-ordering
   static GetBaseUrl() {
 
-     return 'http://saeedansari-001-site5.itempurl.com/api/';
-   }
+     //return 'http://saeedansari-001-site5.itempurl.com/api/';
+    return 'http://localhost/API.AddressChange/api/';
+    }
 
 }
